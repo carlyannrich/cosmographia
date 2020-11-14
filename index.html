@@ -13,38 +13,80 @@
     />
     <link rel="stylesheet" type="text/css" href="reset.css" />
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <script>
+      function openNav() {
+        document.getElementById("myNav").style.width = "100%";
+      }
+      function closeNav() {
+        document.getElementById("myNav").style.width = "0%";
+      }
+    </script>
   </head>
 
   <body>
     <header>
-      <h1>Cosmographia</h1>
-      <nav>
-        <ul>
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="#projects">Projects</a>
-          </li>
-          <li>
-            <a href="#about">About</a>
-          </li>
-          <li>
-            <a href="#contact">Contact</a>
-          </li>
-        </ul>
-      </nav>
+      <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+          >&times;</a
+        >
+        <div class="overlay-content">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="144.5"
+            height="449"
+            viewBox="0 0 144.5 449"
+          >
+            <g
+              id="Group_11"
+              data-name="Group 11"
+              transform="translate(-152 -20)"
+            >
+              <a href="index.html">
+                <text
+                  id="about"
+                  transform="translate(210 62)"
+                  fill="#6b1002"
+                  font-size="35"
+                  font-family="RobotoBlack"
+                  font-weight="700"
+                  letter-spacing="0.1em"
+                >
+                  <tspan x="-55.2" y="0">Home</tspan>
+                </text>
+              </a>
+
+              <a target="_blank" href="https://www.twitter.com/library_carlyr">
+                <text
+                  id="Contact"
+                  transform="translate(210 112)"
+                  fill="#6b1002"
+                  font-size="35"
+                  font-family="RobotoBlack"
+                  font-weight="700"
+                  letter-spacing="0.1em"
+                >
+                  <tspan x="-55.2" y="0">Contact</tspan>
+                </text>
+              </a>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <span class="span" onclick="openNav()">
+        <div class="menuPosition">
+          <img src="Menu.svg" />
+        </div>
+      </span>
+
+      <h1 class="spacing">Cosmographia</h1>
     </header>
 
     <main>
       <div class="text">
         <section>
           <h2>Hi.</h2>
-          <p>Welcome paragraph.</p>
-          <img
-            src="http://via.placeholder.com/800x400"
-            alt="Placeholder image"
-          />
+          <img src="Suminagashi.JPG" alt="Suminagashi ink art" />
+          <h3>Welcome paragraph.</h3>
         </section>
 
         <section id="projects">
@@ -57,9 +99,6 @@
                   <h3>Header</h3>
                 </header>
                 <p>Middle</p>
-                <footer>
-                  <p>Bottom</p>
-                </footer>
               </article>
             </li>
           </ul>
@@ -67,6 +106,8 @@
       </div>
     </main>
 
-    <footer></footer>
+    <footer id="contact">
+      <h4>Coded by... me! (c) 2020.</h4>
+    </footer>
   </body>
 </html>
