@@ -9,3 +9,37 @@ body {
     font-size: 20px;
     text-align: center;
 }
+
+h1 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+/* unvisited link */
+
+li:link {
+    color: #036172;
+}
+
+/* visited link */
+
+li:visited {
+    color: #036172;
+}
+
+/* mouse over link */
+
+li:hover {
+    color: #000;
+}
+
+/* selected link */
+
+li:active {
+    color: #000;
+}
