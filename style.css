@@ -2,3 +2,10 @@ body {
     background-color: #d5c9e2;
     font-family: Tahoma;
 }
+
+.text {
+    font-family: Tahoma;
+    color: #000000;
+    font-size: 20px;
+    text-align: center;
+}
