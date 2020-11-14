@@ -22,24 +22,24 @@ h2 {
 
 /* unvisited link */
 
-li:link {
+a:link {
     color: #036172;
 }
 
 /* visited link */
 
-li:visited {
+a:visited {
     color: #036172;
 }
 
 /* mouse over link */
 
-li:hover {
+a:hover {
     color: #000;
 }
 
 /* selected link */
 
-li:active {
+a:active {
     color: #000;
 }
