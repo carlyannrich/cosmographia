@@ -13,6 +13,8 @@
     />
     <link rel="stylesheet" type="text/css" href="reset.css" />
     <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <!-- for the navigation menu -->
     <script>
       function openNav() {
         document.getElementById("myNav").style.width = "100%";
@@ -21,8 +23,6 @@
         document.getElementById("myNav").style.width = "0%";
       }
     </script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
   </head>
 
   <body>
@@ -80,12 +80,7 @@
         </div>
       </span>
 
-      <h1 class="ml11">
-        <span class="text-wrapper">
-          <span class="line line1"></span>
-          <span class="letters">Cosmographia</span>
-        </span>
-      </h1>
+      <h1>Cosmographiia</h1>
     </header>
 
     <main>
@@ -94,8 +89,11 @@
           <h2>
             Recreating early printed woodcuts and engravings into modern prints.
           </h2>
-          <img src="Suminagashi.JPG" alt="Suminagashi ink art" />
-          <h3>🏔💫🌊✨🌚🌿🌝 Welcome!🐬🍂🔥⚡️🏛🏺🗺📖📚</h3>
+          <img
+            class="image"
+            src="Book and Laptop svg.svg"
+            alt="book and laptop"
+          />
         </section>
 
         <section id="projects">
@@ -107,6 +105,11 @@
                 <header>
                   <h3>Dragons</h3>
                 </header>
+                <div class="image2">
+                  <img src="Dragon 1.jpg" alt="Dragon 1" width="80%" />
+                  <img src="Dragon 2.jpg" alt="Dragon 2" width="80%" />
+                  <img src="Dragon 3.jpg" alt="Dragon 3" width="80%" />
+                </div>
                 <p>Trilogy</p>
               </article>
             </li>
@@ -115,6 +118,11 @@
                 <header>
                   <h3>Skeletons</h3>
                 </header>
+                <div class="image2">
+                  <img src="Skeleton 1.jpg" alt="Skeleton 1" width="80%" />
+                  <img src="Skeleton 2.jpg" alt="Skeleton 2" width="80%" />
+                  <img src="Skeleton 3.jpg" alt="Skeleton 3" width="80%" />
+                </div>
                 <p>Trilogy</p>
               </article>
             </li>
@@ -126,50 +134,5 @@
     <footer id="contact">
       <h4>Coded by... me! (c) 2020.</h4>
     </footer>
-
-    <script>
-      // Wrap every letter in a span
-      var textWrapper = document.querySelector(".ml11 .letters");
-      textWrapper.innerHTML = textWrapper.textContent.replace(
-        /([^\x00-\x80]|\w)/g,
-        "<span class='letter'>$&</span>"
-      );
-
-      anime
-        .timeline({ loop: true })
-        .add({
-          targets: ".ml11 .line",
-          scaleY: [0, 1],
-          opacity: [0.5, 1],
-          easing: "easeOutExpo",
-          duration: 700,
-        })
-        .add({
-          targets: ".ml11 .line",
-          translateX: [
-            0,
-            document.querySelector(".ml11 .letters").getBoundingClientRect()
-              .width + 10,
-          ],
-          easing: "easeOutExpo",
-          duration: 700,
-          delay: 100,
-        })
-        .add({
-          targets: ".ml11 .letter",
-          opacity: [0, 1],
-          easing: "easeOutExpo",
-          duration: 600,
-          offset: "-=775",
-          delay: (el, i) => 34 * (i + 1),
-        })
-        .add({
-          targets: ".ml11",
-          opacity: 0,
-          duration: 1000,
-          easing: "easeOutExpo",
-          delay: 1000,
-        });
-    </script>
   </body>
 </html>
