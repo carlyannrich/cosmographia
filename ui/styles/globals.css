@@ -14,3 +14,21 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.bottomContainer {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.bottomImage {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.topImage {
+  position: absolute;
+  top: 42px;
+  z-index: 2;
+}
