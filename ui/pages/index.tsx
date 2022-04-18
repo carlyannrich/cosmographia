@@ -9,14 +9,17 @@ const Home: NextPage = () => {
   const y = useMotionValue(0);
 
   function handleMouse(event) {
+    console.log(event);
+    if (event.type === 'mousemove' && event.buttons === 1) {
     const rect = event.currentTarget.getBoundingClientRect();
 
     x.set(event.clientX - rect.left);
     y.set(event.clientY - rect.top);
+    };
   }
-  useEffect(() => {
-  console.log(y);
-  });
+  // useEffect(() => {
+  // console.log();
+  // });
 
   const rotate = useTransform(y, [0, 1000], [0, 570]);
 
@@ -43,7 +46,7 @@ const Home: NextPage = () => {
             borderRadius: 30,
             backgroundColor: "rgba(255, 255, 255, 0.05)",
           }}
-          onMouseMove={handleMouse}>
+            onMouseDown={handleMouse} onMouseMove={handleMouse}>
             <motion.img style={{
               originY: 0.54, rotate
             }} whileTap={{ cursor: "grabbing" }} className='topImage' src='/top.png' alt='volvelleTop' draggable="false" />
