@@ -1,10 +1,25 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
-import bottomImage from '../assets/JRL20114423.jpg'
-import topImage from '../assets/top.png'
+import { motion, useMotionValue, useTransform } from "framer-motion"
+import { useEffect } from 'react';
 
 const Home: NextPage = () => {
+
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  function handleMouse(event) {
+    const rect = event.currentTarget.getBoundingClientRect();
+
+    x.set(event.clientX - rect.left);
+    y.set(event.clientY - rect.top);
+  }
+  useEffect(() => {
+  console.log(y);
+  });
+
+  const rotate = useTransform(y, [0, 1000], [0, 570]);
+
   return (
     <div>
       <Head>
@@ -18,10 +33,23 @@ const Home: NextPage = () => {
           Cosmographia
         </h1>
         <div className='bottomContainer'>
-        <img className='topImage' src='/top.png' alt='volvelleTop' />
+          <motion.div className='topContainer'
+          style={{
+            width: 400,
+            height: 400,
+            display: "flex",
+            placeItems: "center",
+            placeContent: "center",
+            borderRadius: 30,
+            backgroundColor: "rgba(255, 255, 255, 0.05)",
+          }}
+          onMouseMove={handleMouse}>
+            <motion.img style={{
+              originY: 0.54, rotate
+            }} whileTap={{ cursor: "grabbing" }} className='topImage' src='/top.png' alt='volvelleTop' draggable="false" />
+          </motion.div>
         <img className='bottomImage' src='/JRL20114423.jpg' alt='volvelle' />
         </div>
-
       </main>
 
       <footer>
@@ -30,5 +58,7 @@ const Home: NextPage = () => {
     </div>
   )
 }
+
+{/* <motion.img style={{ originY: 0.54 }} drag='x' whileDrag={{ rotate: 20 }} dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }} whileTap={{ cursor: "grabbing" }} className='topImage' src='/top.png' alt='volvelleTop' draggable="false" /> */ }
 
 export default Home

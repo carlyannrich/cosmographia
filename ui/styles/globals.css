@@ -23,12 +23,20 @@ a {
 
 .bottomImage {
   position: relative;
-  top: 0;
+  top: -1000;
   left: 0;
 }
 
 .topImage {
   position: absolute;
   top: 42px;
+  left: -7px;
   z-index: 2;
+}
+
+.topContainer {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
 }
