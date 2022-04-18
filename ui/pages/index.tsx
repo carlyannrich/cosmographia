@@ -9,19 +9,31 @@ const Home: NextPage = () => {
   const y = useMotionValue(0);
 
   function handleMouse(event) {
-    console.log(event);
     if (event.type === 'mousemove' && event.buttons === 1) {
     const rect = event.currentTarget.getBoundingClientRect();
 
-    x.set(event.clientX - rect.left);
-    y.set(event.clientY - rect.top);
+    const determineNumber = () => {
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+
+      if (y >= 180 && y <= 400) {
+        return event.clientX - rect.right
+      }
+      // if y value is between 180-400 then invert x number
+      return x;
+    }
+    x.set(determineNumber());
+    console.log('this is x ' + x.get());
     };
   }
   // useEffect(() => {
   // console.log();
   // });
 
-  const rotate = useTransform(y, [0, 1000], [0, 570]);
+
+  const cursorRange = [-400, -1, 0, 400,]
+  const rotateRange = [360, 181, 0, 180]
+  const rotateTop = useTransform(x, cursorRange, rotateRange);
 
   return (
     <div>
@@ -36,22 +48,12 @@ const Home: NextPage = () => {
           Cosmographia
         </h1>
         <div className='bottomContainer'>
-          <motion.div className='topContainer'
-          style={{
-            width: 400,
-            height: 400,
-            display: "flex",
-            placeItems: "center",
-            placeContent: "center",
-            borderRadius: 30,
-            backgroundColor: "rgba(255, 255, 255, 0.05)",
-          }}
-            onMouseDown={handleMouse} onMouseMove={handleMouse}>
-            <motion.img style={{
-              originY: 0.54, rotate
-            }} whileTap={{ cursor: "grabbing" }} className='topImage' src='/top.png' alt='volvelleTop' draggable="false" />
-          </motion.div>
-        <img className='bottomImage' src='/JRL20114423.jpg' alt='volvelle' />
+          <motion.img style={{
+            originY: 0.54, rotate: rotateTop,
+          }} whileTap={{ cursor: "grabbing" }} className='topImage' src='/top.png' alt='volvelleTop' draggable="false" />
+          <motion.div className='topContainer' whileTap={{ cursor: "grabbing" }}
+            onMouseDown={handleMouse} onMouseMove={handleMouse} draggable="false" />          
+          <img draggable="false" className='bottomImage' src='/JRL20114423.jpg' alt='volvelle' />
         </div>
       </main>
 
